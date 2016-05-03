@@ -37,10 +37,13 @@ until you have done this to each of the second NIK Filter available.
 
 ![](img/nikplayonlinux3.png)
 
-Time to test. Open a shell and type:
+Time to test. I have a [RIO image here](img/rio.png) that we can use for
+testing.  **NIK FILTERS ARE DESTRUCTIVE**, they will save the file in place.
+Open a shell and type:
 
-    /usr/share/playonlinux/playonlinux --run "Dfine2" EXAMPLEIMG.png
+    /usr/share/playonlinux/playonlinux --run "Dfine2" rio.png
 
+![](img/dfine2.png)
 
 
 ##Download this script and place in plug-ins
