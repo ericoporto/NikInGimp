@@ -18,7 +18,11 @@ Now open PlayOnLinux from Ubuntu Dash, click **Configure**.
 Click **New**, Next, **64-bits Windows installation**, Next, **1.7.31**,
 Next, type `googlenik` as the name of the VirtualDrive. It will create an entry
 called googlenik. Click on it, Click **Install Components**, and select
-`vcrun2012` from the list. Install it.
+`vcrun2012` from the list. Install it. Do the same to install
+`Microsoft Core Fonts`.
+
+Now on the PlayOnLinux home screen, click **Install**, in the search bar type
+`Microsoft Fonts`, and install that to the `googlenik` instance.
 
 Now, back to the tabbed view of the PlayOnLinux configuration, still in the
 googlenik instance, click on Miscellaneous, and click **Run a .exe file in this
@@ -27,6 +31,20 @@ downloaded.
 
 Follow what's on the screen - basically just click next and wait for it to
 finish. In case of errors, choose **ignore**.
+
+Now, open Nautilus, right click on the `nikcollection-full-1.2.11.exe`, click
+**Extract Here**. On the folder fourth folder - [it has an invalid char name as
+name](img/nikcopyfromtar1.png) - , there is a Google folder with five items in
+it.
+
+![](img/nikcopy.png)
+
+Copy it and navigate to your PlayOnLinux drive folder for the `googlenik`
+instance. Paste it on `users\YOURUSERNAME\Application Data` and in the
+`users\Public\Application Data` folder. This will fix previous copying errors
+on the installer.
+
+![](img/merge.png)
 
 Now time to make the shortcuts to use the Nik Filters in standalone first,
 back to the tabbed view of the PlayOnLinux configuration, still in the
