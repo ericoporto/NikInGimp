@@ -25,7 +25,7 @@ POL_SetupWindow_Init
 POL_SetupWindow_presentation "$TITLE" "Google" "https://www.google.com/nikcollection/" "ericoporto" "$PREFIX"
 
 #create prefix
-export WINEARCH="win32"
+export WINEARCH="win64"
 POL_Wine_SelectPrefix "$PREFIX"
 POL_Wine_PrefixCreate "$WINE_VERSION"
 
@@ -37,6 +37,12 @@ POL_Call POL_Install_corefonts
 
 #Setting OS ver
 Set_OS "winxp" "sp3"
+
+#Correct permissions
+#google_path="${WINEPREFIX}/drive_c/users/${USER}/Local Settings/Application Data/Google"
+GOOGLE_PATH="${WINEPREFIX}/drive_c/users/Public/Local Settings/Application Data/Google"
+mkdir -p "$GOOGLE_PATH"
+chmod -R 777 "$GOOGLE_PATH"
 
 POL_System_TmpCreate "tempgooglenik"
 cd "$POL_System_TmpDir"
