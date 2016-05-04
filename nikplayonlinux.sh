@@ -21,31 +21,31 @@ WINE_VERSION="1.7.31"
 NAMEOFINSTALLATION="$TITLE installation"
 
 POL_SetupWindow_Init
+POL_Debug_Init
 
 POL_SetupWindow_presentation "$TITLE" "Google" "https://www.google.com/nikcollection/" "ericoporto" "$PREFIX"
 
 #create prefix
-export WINEARCH="win64"
+export WINEARCH="win32"
 POL_Wine_SelectPrefix "$PREFIX"
 POL_Wine_PrefixCreate "$WINE_VERSION"
 
-#setup prefix
-POL_Wine_InstallFonts
-POL_Call POL_Install_tahoma
-POL_Call POL_Install_vcrun2012
-POL_Call POL_Install_corefonts
+POL_System_TmpCreate "tempgooglenik"
+cd "$POL_System_TmpDir"
 
 #Setting OS ver
 Set_OS "winxp" "sp3"
+
+#setup prefix
+POL_Wine_InstallFonts
+POL_Call POL_Install_corefonts
+POL_Call POL_Install_vcrun2012
 
 #Correct permissions
 #google_path="${WINEPREFIX}/drive_c/users/${USER}/Local Settings/Application Data/Google"
 GOOGLE_PATH="${WINEPREFIX}/drive_c/users/Public/Local Settings/Application Data/Google"
 mkdir -p "$GOOGLE_PATH"
 chmod -R 777 "$GOOGLE_PATH"
-
-POL_System_TmpCreate "tempgooglenik"
-cd "$POL_System_TmpDir"
 
 POL_SetupWindow_InstallMethod "LOCAL,DOWNLOAD"
 
