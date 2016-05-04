@@ -1,0 +1,42 @@
+Error opening file for writing:
+
+users/Public/Application Data/Google/Analog Efex Pro 2/resource/Plugin.ico
+users/Public/Application Data/Google/Analog Efex Pro 2/resource/SplashBottom.png
+users/Public/Application Data/Google/Analog Efex Pro 2/resource/SplashTop.png
+users/Public/Application Data/Google/Analog Efex Pro 2/resource/acknowledgments.html
+users/Public/Application Data/Google/Analog Efex Pro 2/resource/style.xml
+users/Public/Application Data/Google/Analog Efex Pro 2/resource/styles_geminon.xml
+users/Public/Application Data/Google/Analog Efex Pro 2/resource/styles_geminon_templates.xml
+
+users/Public/Application Data/Google/Color Efex Pro 4/resource/Plugin.ico
+users/Public/Application Data/Google/Color Efex Pro 4/resource/SplashBottom.png
+users/Public/Application Data/Google/Color Efex Pro 4/resource/SplashTop.png
+users/Public/Application Data/Google/Color Efex Pro 4/resource/acknowledgments.html
+users/Public/Application Data/Google/Color Efex Pro 4/resource/style.xml
+users/Public/Application Data/Google/Color Efex Pro 4/resource/style_caprica.png
+users/Public/Application Data/Google/Color Efex Pro 4/resource/style_caprica.xml
+users/Public/Application Data/Google/Color Efex Pro 4/resource/style_caprica_templates.xml
+
+users/Public/Application Data/Google/Dfine 2/resource/acknowledgments.html
+
+users/Public/Application Data/Google/HDR Efex Pro 2/resource/Plugin.ico
+users/Public/Application Data/Google/HDR Efex Pro 2/resource/SplashBottom.png
+users/Public/Application Data/Google/HDR Efex Pro 2/resource/SplashTop.png
+users/Public/Application Data/Google/HDR Efex Pro 2/resource/acknowledgments.html
+users/Public/Application Data/Google/HDR Efex Pro 2/resource/style.xml
+users/Public/Application Data/Google/HDR Efex Pro 2/resource/styles_scorpia.png
+users/Public/Application Data/Google/HDR Efex Pro 2/resource/styles_scorpia.xml
+users/Public/Application Data/Google/HDR Efex Pro 2/resource/styles_scorpia_templates.xml
+
+users/Public/Application Data/Google/Silver Efex Pro 2/resource/Plugin.ico
+users/Public/Application Data/Google/Silver Efex Pro 2/resource/SplashBottom.png
+users/Public/Application Data/Google/Silver Efex Pro 2/resource/SplashTop.png
+users/Public/Application Data/Google/Silver Efex Pro 2/resource/acknowledgments.html
+users/Public/Application Data/Google/Silver Efex Pro 2/resource/style.xml
+users/Public/Application Data/Google/Silver Efex Pro 2/resource/styles_leonis.png
+users/Public/Application Data/Google/Silver Efex Pro 2/resource/styles_leonis.xml
+users/Public/Application Data/Google/Silver Efex Pro 2/resource/styles_leonis_templates.xml
+
+users/Public/Application Data/Google/Sharpener Pro 3/resource/acknowledgments.html
+
+users/Public/Application Data/Google/Viveza 2/resource/acknowledgments.html

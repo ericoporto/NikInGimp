@@ -17,7 +17,7 @@ source "$PLAYONLINUX/lib/sources"
 
 TITLE="Google NIK Collection" # Should be present in all your scripts
 PREFIX="GoogleNikCollection"
-WINE_VERSION="1.7.31"
+WINE_VERSION="1.8.2"
 NAMEOFINSTALLATION="$TITLE installation"
 
 POL_SetupWindow_Init
@@ -47,6 +47,11 @@ GOOGLE_PATH="${WINEPREFIX}/drive_c/users/Public/Local Settings/Application Data/
 mkdir -p "$GOOGLE_PATH"
 chmod -R 777 "$GOOGLE_PATH"
 
+GOOGLE_PATH="${WINEPREFIX}/drive_c/users/Public/Application Data/Google"
+mkdir -p "$GOOGLE_PATH"
+chmod -R 777 "$GOOGLE_PATH"
+
+
 POL_SetupWindow_InstallMethod "LOCAL,DOWNLOAD"
 
 if [ "$INSTALL_METHOD" = "LOCAL" ]
@@ -62,15 +67,25 @@ then
     INSTALLER="$POL_System_TmpDir/nikcollection-full-1.2.11.exe"
 fi
 
-POL_Wine "$INSTALLER"
+POL_Wine start /unix "$INSTALLER"
+POL_Wine_WaitExit "$TITLE"
 
 #WORK IN PROGRESS HERE
+#BUG: Files are not copyied by the installer
+#Need to manually extract from the exe and copy.
+#See errorduringinstall.txt
+
+#BUG: GoogleUpdate.exe OPENS IN BACKGROUND AND DOESN'T CLOE
+#HAVE TO MANUALLY KILL GoogleUpdate.exe.
+#pkill GoogleUpdate.exe
 
 POL_System_TmpDelete
 
+
 POL_Shortcut "Analog Efex Pro 2.exe" "Analog Efex Pro 2"
 POL_Shortcut "Color Efex Pro 4.exe" "Color Efex Pro 4"
-POL_Shortcut "Dfine 2.exe" "Dfine 2"
+#Dfine2 exe has no space!
+POL_Shortcut "Dfine2.exe" "Dfine 2"
 POL_Shortcut "SHP3RPS.exe" "SHP3RPS"
 
 POL_SetupWindow_Close

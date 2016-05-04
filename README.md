@@ -4,6 +4,13 @@
 This guide assumes you have both Ubuntu 14.04 and GIMP-2.8. I am not responsible
 if this guides messes with your system.
 
+##PlayOnLinux script
+If you want to try it out, I have made a script to run in PlayOnLinux.
+
+[PlayOnLinux Script](nikplayonlinux.sh)
+
+Right now, it will give the error listed [here](errorduringinstall.txt).
+
 ##Install Wine and PlayOnLinux
 
     sudo apt-get install wine playonlinux
