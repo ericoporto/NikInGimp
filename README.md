@@ -73,8 +73,6 @@ Right now, I could only use the following filters:
 
 * Dfine2
 
-* SHP3OS
-
 * SHP3RPS
 
 
@@ -84,7 +82,6 @@ Each can be ran using:
     /usr/share/playonlinux/playonlinux --run "Analog Efex Pro 2" IMAGEFILE
     /usr/share/playonlinux/playonlinux --run "Color Efex Pro 4" IMAGEFILE
     /usr/share/playonlinux/playonlinux --run "Dfine2" IMAGEFILE
-    /usr/share/playonlinux/playonlinux --run "SHP3OS" IMAGEFILE
     /usr/share/playonlinux/playonlinux --run "SHP3RPS" IMAGEFILE
 
 
@@ -92,11 +89,13 @@ Each can be ran using:
 
 I couldn't find out how to use the following filters:
 
-* Viveza 2
+* HDR Efex Pro 2
+
+* SHP3OS
 
 * Silver Efex Pro 2
 
-* HDR Efex Pro 2
+* Viveza 2
 
 These filters are the only one that leave no log files when crashing. If you
 know how to force them to leave logs, tell me.
