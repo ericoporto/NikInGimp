@@ -18,7 +18,7 @@ source "$PLAYONLINUX/lib/sources"
 TITLE="Google NIK Collection" # Should be present in all your scripts
 PREFIX="GoogleNikCollection"
 WINE_VERSION="1.7.31"
-
+NAMEOFINSTALLATION="$TITLE installation"
 
 POL_SetupWindow_Init
 
@@ -40,16 +40,27 @@ Set_OS "winxp" "sp3"
 
 POL_System_TmpCreate "tempgooglenik"
 cd "$POL_System_TmpDir"
-POL_Download "https://dl.google.com/edgedl/photos/nikcollection-full-1.2.11.exe" "284059da2b8fbec24140d59cbd3017f3"
 
-POL_SetupWindow_wait "Installation in progress." "Google NIK Collection installation"
+POL_SetupWindow_InstallMethod "LOCAL,DOWNLOAD"
 
-INSTALLER="$POL_System_TmpDir/nikcollection-full-1.2.11.exe"
+if [ "$INSTALL_METHOD" = "LOCAL" ]
+then
+    POL_SetupWindow_browse "Please select the installation file to run." "$NAMEOFINSTALLATION"
+    POL_SetupWindow_wait "Installation in progress." "$NAMEOFINSTALLATION"
+    INSTALLER="$APP_ANSWER"
+elif [ "$INSTALL_METHOD" = "DOWNLOAD" ]
+then
+    cd "$POL_System_TmpDir"
+    POL_Download "https://dl.google.com/edgedl/photos/nikcollection-full-1.2.11.exe" "284059da2b8fbec24140d59cbd3017f3"
+    POL_SetupWindow_wait "Installation in progress." "$NAMEOFINSTALLATION"
+    INSTALLER="$POL_System_TmpDir/nikcollection-full-1.2.11.exe"
+fi
+
 POL_Wine "$INSTALLER"
 
+#WORK IN PROGRESS HERE
 
 POL_System_TmpDelete
-
 
 POL_Shortcut "Analog Efex Pro 2.exe" "Analog Efex Pro 2"
 POL_Shortcut "Color Efex Pro 4.exe" "Color Efex Pro 4"
