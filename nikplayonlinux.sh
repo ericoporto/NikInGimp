@@ -1,7 +1,7 @@
-#!/usr/bin/env playonlinux-bash
+c#!/bin/bash
 # Date : (2016-may-4)
 # Last revision : (2016-may-5)
-# Wine version used : 1.7.31
+# Wine version used : 1.8.2
 # Distribution used to test : Ubuntu 14.04
 # Author : ericoporto
 
@@ -26,8 +26,8 @@ POL_Debug_Init
 POL_SetupWindow_presentation "$TITLE" "Google" "https://www.google.com/nikcollection/" "ericoporto" "$PREFIX"
 
 #create prefix
-export WINEARCH="win32"
 POL_Wine_SelectPrefix "$PREFIX"
+POL_System_SetArch "x86"
 POL_Wine_PrefixCreate "$WINE_VERSION"
 
 POL_System_TmpCreate "tempgooglenik"
@@ -59,6 +59,7 @@ then
     POL_SetupWindow_browse "Please select the installation file to run." "$NAMEOFINSTALLATION"
     POL_SetupWindow_wait "Installation in progress." "$NAMEOFINSTALLATION"
     INSTALLER="$APP_ANSWER"
+    cp $INSTALLER "$POL_System_TmpDir/"
 elif [ "$INSTALL_METHOD" = "DOWNLOAD" ]
 then
     cd "$POL_System_TmpDir"
@@ -67,20 +68,45 @@ then
     INSTALLER="$POL_System_TmpDir/nikcollection-full-1.2.11.exe"
 fi
 
-POL_Wine start /unix "$INSTALLER"
+INSTALLER_FNAME=$(basename "$INSTALLER")
+INSTALLER_FNAMEX="${INSTALLER_FNAME%.exe}"
+
+POL_SetupWindow_message "Select 'ignore' for any errors that appear." "WARNING"
+
+
+POL_Wine_WaitBefore "$TITLE" # Display generic wait message that doesn't block the script from continuing
+POL_Wine start /unix "$INSTALLER" # start /unix is not usually recommended but neccessary in this case
 POL_Wine_WaitExit "$TITLE"
+
+#BUG: GoogleUpdate.exe OPENS IN BACKGROUND AND DOESN'T CLOSE
+#HAVE TO MANUALLY KILL GoogleUpdate.exe.
+#If it is stuck here, copy and paste the kill commands on your terminal.
+kill `ps -x | grep services.exe | head -n1 | sed 's/ .*//'`
+kill `ps -x | grep GoogleUpdate.exe | head -n1 | sed 's/ .*//'`
+kill `ps -x | grep GoogleUpdate.exe | head -n1 | sed 's/ .*//'`
+
+#I've tried the command below but it DOESN'T WORK
+# so I am going to kill everyone... In this wine.
+POL_Wine wineboot -k # Kill all processes
+
 
 #WORK IN PROGRESS HERE
 #BUG: Files are not copyied by the installer
 #Need to manually extract from the exe and copy.
 #See errorduringinstall.txt
+cd "$POL_System_TmpDir"
+mkdir missingfiles
+file-roller --extract-here ${INSTALLER_FNAME}
+cd "${POL_System_TmpDir}/${INSTALLER_FNAMEX}"
+find  . -mindepth 2 -iname Google -exec cp -rt "${POL_System_TmpDir}/missingfiles" {} +
+cd "${POL_System_TmpDir}/missingfiles"
+cp -R Google "${WINEPREFIX}/drive_c/users/Public/Local Settings/Application Data/"
+cp -R Google "${WINEPREFIX}/drive_c/users/Public/Application Data/"
 
-#BUG: GoogleUpdate.exe OPENS IN BACKGROUND AND DOESN'T CLOE
-#HAVE TO MANUALLY KILL GoogleUpdate.exe.
-#pkill GoogleUpdate.exe
 
 POL_System_TmpDelete
 
+POL_SetupWindow_message "Drag and drop an image file to the icons on your desktop and wait" "How to use"
 
 POL_Shortcut "Analog Efex Pro 2.exe" "Analog Efex Pro 2"
 POL_Shortcut "Color Efex Pro 4.exe" "Color Efex Pro 4"
