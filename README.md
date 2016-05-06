@@ -1,8 +1,10 @@
 #Google NIK Collection from GIMP
+
 **THIS IS A WORK IN PROGRESS**
 
 This guide assumes you have both Ubuntu 14.04 and GIMP-2.8. I am not responsible
 if this guides messes with your system.
+
 
 ##NIK Filters working under PlayOnLinux
 
@@ -20,15 +22,16 @@ Right now, I could only use the following filters:
 * SHP3RPS
     * Works perfectly, really fast.
 
+
 ##PlayOnLinux script
 If you want to try it out, I have made a script to run in PlayOnLinux.
 
 [PlayOnLinux Script](nikplayonlinux.sh)
 
-Right now, it will give [erros](errorduringinstall.txt), but it's ok. The script
-will copy missing files. Read the script before using.
+
 
 ##Running NIK Filters from GIMP
+
 It's possible to run the NIK filters from GIMP, just download the [NIK-Filters.py](NIK-Filters.py)
 file and place it in the plug-ins folder.
 
@@ -40,6 +43,8 @@ file and place it in the plug-ins folder.
 
 ##Known Issues
 
+###Useless error after using some filters.
+
 GIMP will complain with the following message after using Color Efex Pro 4 and
 Analog Efex Pro 2. This is because both open a TIF file and give me back a high
 quality JPEG file, but the file has JPEG extension.
@@ -47,3 +52,9 @@ quality JPEG file, but the file has JPEG extension.
     Incompatible type for "RichTIFFIPTC"; tag ignored
 
 If you click ok, the error will go away and everything will work.
+
+
+###Installer complains of not writing files
+
+Right now, it will give [errors](errorduringinstall.txt), but it's ok. The
+playonlinux script will copy missing files after. Read the script before using.
