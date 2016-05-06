@@ -1,19 +1,14 @@
 #!/usr/bin/env python
 
 '''
-ShellOut.py
-call an external program passing the active layer as a temp file.  Windows Only(?)
+NIK-Filters.py
+
+Mod of ShellOut.py focused on getting Google NIK to work.
+ShellOut call an external program passing the active layer as a temp file.
+Tested only in Ubuntu 14.04 with Gimp 2.8
 
 Author:
-Rob Antonishen
-
-Version:
-0.8 better complex external program handling
-0.7 fixed file save bug where all files were png regardless of extension
-0.6 modified to allow for a returned layer that is a different size
-   than the saved layer for
-  0.5 file extension parameter in program list.
-0.4 modified to support many optional programs.
+Erico Porto on top of the work of Rob Antonishen
 
 this script is modelled after the mm extern LabCurves trace plugin
 by Michael Munzert http://www.mm-log.com/lab-curves-gimp
@@ -44,19 +39,18 @@ import tempfile
 
 TEMP_FNAME = "ShellOutTempFile"
 
-def nikWine(name, ndir = None, exe = None):
-  if ndir is None:
-    ndir = name
-  if exe is None:
-    exe = name
+def nikPoL(name, shortcut = None, ifiletype = None):
+  if shortcut is None:
+    shortcut = name
+  if ifiletype is None:
+    ifiletype = "tif"
   return [name,
-          ["wine", os.path.expanduser("~/.wine/drive_c/Program Files/Google/Nik Collection/" +
-                                      os.path.join(ndir, exe + ".exe"))],
-          "tif"]
+          ["playonlinux", "--run", '""' + shortcut + '""' ],
+          ifiletype]
 
-def nikWineHDRHook(tmpfile, ext):
-  shutil.move(os.path.expandvars("$HOME/.wine/drive_c/users/$USER/My Documents/" + TEMP_FNAME + "_HDR." + ext),
-              tmpfile)
+#def nikPoLHDRHook(tmpfile, ext):
+#  shutil.move(os.path.expandvars("$HOME/.wine/drive_c/users/$USER/My Documents/" + TEMP_FNAME + "_HDR." + ext),
+#              tmpfile)
 
 #program list function (globals are evil)
 def listcommands(option=None):
@@ -67,14 +61,14 @@ def listcommands(option=None):
   #
   # Where what gets executed is command fileame so include and flags needed in the command.
   programlist = [
-  nikWine("Analog Efex Pro 2"),
-  nikWine("Color Efex Pro 4"),
-  nikWine("Dfine 2", "Dfine 2", "Dfine2"),
-  nikWine("HDR Efex Pro 2") + [nikWineHDRHook],
-  nikWine("Silver Efex Pro 2"),
-  nikWine("Sharpener Pro 3 (Output Sharpener)", "Sharpener Pro 3", "SHP3OS"),
-  nikWine("Sharpener Pro 3 (Raw Pre Sharpener)", "Sharpener Pro 3", "SHP3RPS"),
-  nikWine("Viveza 2"),
+  nikPoL("Analog Efex Pro 2"),
+  nikPoL("Color Efex Pro 4"),
+  nikPoL("Dfine 2", "Dfine 2", "png"),
+#  nikPoL("HDR Efex Pro 2") + [nikPoLHDRHook],
+#  nikPoL("Silver Efex Pro 2"),
+#  nikPoL("Sharpener Pro 3 (Output Sharpener)", "Sharpener Pro 3", "SHP3OS"),
+  nikPoL("Sharpener Pro 3 (Raw Pre Sharpener)", "SHP3RPS", "png"),
+#  nikPoL("Viveza 2"),
   ["",[],""]
   ]
 
@@ -177,13 +171,13 @@ def plugin_main(image, drawable, visible, command):
 
 
 register(
-        "python_fu_shellout",
-        "Call an external program",
-        "Call an external program",
+        "python_fu_nikfilters",
+        "Call Google NIK from PlayOnLinux",
+        "Call Google NIK from PlayOnLinux",
         "Rob Antonishen",
         "Copyright 2011 Rob Antonishen",
         "2011",
-        "<Image>/Script-Fu/ShellOut...",
+        "<Image>/Script-Fu/NIK-Filters...",
         "RGB*, GRAY*",
         [ (PF_RADIO, "visible", "Layer:", 1, (("new from visible", 1),("current layer",0))),
           (PF_OPTION,"command",("Program:"),0,listcommands())
