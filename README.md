@@ -1,9 +1,10 @@
 #Google NIK Collection from GIMP
-
-**THIS IS A WORK IN PROGRESS**
-
 This guide assumes you have both Ubuntu 14.04 and GIMP-2.8. I am not responsible
 if this guides messes with your system.
+
+![](img/gimpwithdefine.png)
+
+![](img/gimpdfine2.png)
 
 
 ##NIK Filters working under PlayOnLinux
@@ -27,6 +28,8 @@ Right now, I could only use the following filters:
 If you want to try it out, I have made a script to run in PlayOnLinux.
 
 [PlayOnLinux Script](nikplayonlinux.sh)
+
+**THIS IS A WORK IN PROGRESS**
 
 If you prefer, you can do a [manual install](ManualInstall.md).
 
@@ -59,3 +62,10 @@ If you click ok, the error will go away and everything will work.
 
 Right now, it will give [errors](errorduringinstall.txt), but it's ok. The
 playonlinux script will copy missing files after. Read the script before using.
+
+
+###Using swap on disk
+
+Sometimes a big file (~500MB) called swap is created - you can detect that you
+are working with a big image but the ram used by the process in System Monitor
+is rather small (~40MB). I don't know how to prevent this from happening.
