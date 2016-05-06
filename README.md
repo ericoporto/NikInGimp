@@ -36,9 +36,9 @@ It's possible to run the NIK filters from GIMP, just download the [NIK-Filters.p
 file and place it in the plug-ins folder.
 
     wget https://raw.githubusercontent.com/ericoporto/NikInGimp/master/NIK-Filters.py
-    chmod +x ShellOut.py
+    chmod +x NIK-Filters.py
     mkdir ~/.gimp-2.8/plug-ins/
-    mv ShellOut.py ~/.gimp-2.8/plug-ins/
+    mv NIK-Filters.py ~/.gimp-2.8/plug-ins/
 
 
 ##Known Issues
