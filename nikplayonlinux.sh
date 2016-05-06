@@ -81,9 +81,9 @@ POL_Wine_WaitExit "$TITLE"
 #BUG: GoogleUpdate.exe OPENS IN BACKGROUND AND DOESN'T CLOSE
 #HAVE TO MANUALLY KILL GoogleUpdate.exe.
 #If it is stuck here, copy and paste the kill commands on your terminal.
-kill `ps -x | grep services.exe | awk '{print $1;}' | head -n1
-kill `ps -x | grep GoogleUpdate.exe | awk '{print $1;}' | head -n1
-kill `ps -x | grep GoogleUpdate.exe | awk '{print $1;}' | head -n1
+kill `ps -x | grep services.exe | awk '{print $1;}' | head -n1`
+kill `ps -x | grep GoogleUpdate.exe | awk '{print $1;}' | head -n1`
+kill `ps -x | grep GoogleUpdate.exe | awk '{print $1;}' | head -n1`
 
 #I've tried the command below but it DOESN'T WORK
 # so I am going to kill everyone... In this wine.
