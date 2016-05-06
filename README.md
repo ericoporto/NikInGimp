@@ -28,6 +28,7 @@ If you want to try it out, I have made a script to run in PlayOnLinux.
 
 [PlayOnLinux Script](nikplayonlinux.sh)
 
+If you prefer, you can do a [manual install](ManualInstall.md).
 
 
 ##Running NIK Filters from GIMP
