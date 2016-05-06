@@ -69,3 +69,7 @@ playonlinux script will copy missing files after. Read the script before using.
 Sometimes a big file (~500MB) called swap is created - you can detect that you
 are working with a big image but the ram used by the process in System Monitor
 is rather small (~40MB). I don't know how to prevent this from happening.
+
+##Thread on Play On Linux Forum
+
+https://www.playonlinux.com/en/topic-14025-Google_NIK_Filters_on_GIMP.html
