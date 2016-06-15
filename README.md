@@ -29,8 +29,6 @@ If you want to try it out, I have made a script to run in PlayOnLinux.
 
 [PlayOnLinux Script](nikplayonlinux.sh)
 
-**THIS IS A WORK IN PROGRESS**
-
 If you prefer, you can do a [manual install](ManualInstall.md).
 
 
@@ -56,12 +54,6 @@ quality JPEG file, but the file has JPEG extension.
     Incompatible type for "RichTIFFIPTC"; tag ignored
 
 If you click ok, the error will go away and everything will work.
-
-
-###Installer complains of not writing files
-
-Right now, it will give [errors](errorduringinstall.txt), but it's ok. The
-playonlinux script will copy missing files after. Read the script before using.
 
 
 ###Using swap on disk
