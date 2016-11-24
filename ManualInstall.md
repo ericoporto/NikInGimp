@@ -1,3 +1,8 @@
+**this guide is unmantained**, instead I created a script
+for *playonlinux*, you can read more in the [`README.md`](README.md) 
+or get the script [here](nikplayonlinux.sh) if you are already familiar
+with *playonlinux*.
+
 ##Install Wine and PlayOnLinux
 
     sudo apt-get install wine playonlinux
